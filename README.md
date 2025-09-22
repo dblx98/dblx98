@@ -95,7 +95,7 @@ I'm a passionate **Software Developer** and **Technology Enthusiast** who loves 
 
 ## 💼 Professional Experience
 
-### 🏢 Software Developer | Company Name
+### 🏢 Software Developer | XenticIt
 **Duration:** Jan 2023 - Present
 - Developed and maintained web applications using modern JavaScript frameworks
 - Collaborated with cross-functional teams to deliver high-quality software solutions
