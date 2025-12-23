@@ -1,0 +1,12 @@
+requests
+beautifulsoup4
+trafilatura
+readability-lxml
+python-slugify
+pydantic
+fastapi
+uvicorn
+chromadb
+sentence-transformers
+tiktoken
+python-dotenv
