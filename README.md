@@ -138,7 +138,35 @@ CSS          50 mins         █▓░░░░░░░░░░░░░░░
 ---
 
 <div align="center">
-  
+
 ⭐️ From [Saimun Bepari](https://github.com/dblx98) | Feel free to star my repositories if you find them useful!
 
 </div>
+
+---
+
+# 🧠 AI Knowledge System for Website Support
+
+This repository now includes an end-to-end Retrieval-Augmented Generation (RAG) stack to crawl a website, build a structured knowledge base, and serve an API-ready chatbot for customer support. See [`docs/architecture.md`](docs/architecture.md) for the full design.
+
+## Quickstart
+
+1. Copy `.env.example` to `.env` (or set environment variables) and configure:
+   - `AIKB_BASE_URL` — root URL to crawl (e.g., `https://example.com`).
+   - `AIKB_ALLOWED_DOMAINS` — comma-separated list of domains to respect.
+2. Install dependencies: `pip install -r requirements.txt`.
+3. Build the knowledge base: `python -m src.pipeline`.
+4. Start the chatbot API: `uvicorn src.app:app --reload`.
+
+## Components
+
+- **Crawler (`src/crawler.py`)** — respects rate limits/domains and yields HTML for processing.
+- **Processing (`src/processing.py`)** — cleans boilerplate, chunks content, classifies type, and detects updates.
+- **Storage (`src/storage.py`)** — SQLite for metadata/change tracking and Chroma vector store for embeddings.
+- **RAG API (`src/rag.py`, `src/app.py`)** — semantic retrieval plus prompt-building; plug in your LLM provider.
+
+## Automation & Monitoring
+
+- Schedule `python -m src.pipeline` via cron/Cloud Scheduler.
+- Add webhook-based URL submissions for instant indexing.
+- Optional Slack webhook (`AIKB_SLACK_WEBHOOK`) for crawl alerts.
